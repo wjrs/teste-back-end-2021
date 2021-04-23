@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class LoginRequest extends FormRequest
+class ProductRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,16 +24,22 @@ class LoginRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required|email',
-            'password' => 'required|string',
+            'name' => 'required|string',
+            'description' => 'required|string',
+            'price' => 'required',
+            'weight' => 'nullable',
+            'photo' => 'required',
         ];
     }
 
     public function attributes()
     {
         return [
-            'email' => 'E-mail',
-            'password' => 'Senha',
+            'nome' => 'Nome',
+            'description' => 'Descrição',
+            'price' => 'Preço',
+            'weight' => 'Peso',
+            'photo' => 'Foto',
         ];
     }
 
@@ -41,8 +47,9 @@ class LoginRequest extends FormRequest
     {
         return [
             'required' => 'O campo :attribute é obrigatório.',
-            'email' => 'O campo :attribute é inválido',
+            //'name.min' => 'O campo :attribute deve conter pelo menos 5 caracteres',
+            'numeric' => 'O campo :attribute deve ser numérico',
+            'image' => 'O campo :attribute deve ser uma imagem',
         ];
     }
-
 }

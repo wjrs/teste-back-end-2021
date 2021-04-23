@@ -16,9 +16,9 @@ class UserSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'name' => 'Suporte Dindigital',
+            'name' => 'Suporte DIN DIGITAL',
             'email' => 'suporte@dindigital.com',
-            'password' => Hash::make('secret'),
+            'password' => Hash::make('secret1'),
         ]);
     }
 }
